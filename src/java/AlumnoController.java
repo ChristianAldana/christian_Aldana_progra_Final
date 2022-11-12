@@ -15,14 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author christian
  */
-@WebServlet(urlPatterns = {"/ValidarFormulario"})
-public class ValidarFormulario extends HttpServlet {
-    
+@WebServlet(urlPatterns = {"/AlumnoController"})
+public class AlumnoController extends HttpServlet {
+
 }
-    
-
-
-    
-
-    
-

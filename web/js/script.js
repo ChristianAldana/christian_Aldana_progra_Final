@@ -49,9 +49,9 @@ function eliminarPropiedadDeObjetos(objeto){
 
 function manipularElementosDelDom(){
     let alumno= new Object();
-    let codigo=document.getElementById("");
-    let nombre=document.getElementById("");
-    let correo=document.getElementById("");
+    let codigo=document.getElementById("codigo");
+    let nombre=document.getElementById("nombre");
+    let correo=document.getElementById("correo");
     alumno.codigo=codigo.value;
     alumno.nombre=nombre.value;
     alumno.correo=correo.value;
@@ -149,10 +149,13 @@ function enviarFormularioOpcion2(){
 
 
 function limpiarFormulario(){
-    document.getElementById("").value='';
-    document.getElementById("").value='';
-    document.getElementById("").value='';
-    document.getElementById("").value='';
+    document.getElementById("modelo").value='';
+    document.getElementById("tamañoPantalla").value='';
+    document.getElementById("cantidadRam").value='';
+    document.getElementById("almacenamiento").value='';
+    document.getElementById("sistemaOperativo").value='';
+    document.getElementById("marcaCodigo").value='';
+
 }
 
 function mostrarMensaje(mensaje){
@@ -184,7 +187,7 @@ function eliminarAlumno(codigo){
         setTimeout( function() { window.location.reload() }, 2000 );
       }
     };        
-    formData.append('', codigo);
+    formData.append('modelo', codigo);
     formData.append('control', 'ELIMINAR');
     XHR.send(formData); 
     
