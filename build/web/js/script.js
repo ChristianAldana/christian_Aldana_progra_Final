@@ -187,7 +187,7 @@ function eliminarAlumno(codigo){
         setTimeout( function() { window.location.reload() }, 2000 );
       }
     };        
-    formData.append('modelo', codigo);
+    formData.append('modelo', modelo);
     formData.append('control', 'ELIMINAR');
     XHR.send(formData); 
     

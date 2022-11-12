@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author JP
+ * @author CHRISTIAN
  */
 @WebServlet(urlPatterns = {"/NewServlet"})
 public class NewServlet extends HttpServlet {
@@ -26,24 +26,7 @@ public class NewServlet extends HttpServlet {
      Computadora[] alumnosRegistrados;
      StringBuffer objetoRespuesta = new StringBuffer();
     
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+   
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -59,8 +42,7 @@ public class NewServlet extends HttpServlet {
                 request.getParameter("cantidadRam"),
                 request.getParameter("almacenamiento"),
                 request.getParameter("sistemaOperativo"),
-                request.getParameter("marcaCodigo"),
-                Integer.parseInt(request.getParameter("opcion")));                
+                Integer.parseInt(request.getParameter("marcaCodigo")));                
                 registroAlumno.guardarAlumno2(compu);//almacenarlo en BD                 
            }else if(control.toUpperCase().equals("ELIMINAR")){
                int codigoEliminar= Integer.parseInt(request.getParameter("modelo"));

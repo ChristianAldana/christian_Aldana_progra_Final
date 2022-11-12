@@ -16,18 +16,16 @@ public class Computadora {
     private String cantidadRam;
     private String almacenamiento;
     private String sistemaOperativo;
-    private String marcaCodigo;
-    private int tipo;
+    private int marcaCodigo;
 
     
-    public Computadora(String modelo, String tamañoPantalla, String cantidadRam, String almacenamiento, String sistemaOperativo,String marcaCodigo, int tipo){
+    public Computadora(String modelo, String tamañoPantalla, String cantidadRam, String almacenamiento, String sistemaOperativo,int marcaCodigo){
         this.modelo=modelo;
         this.tamañoPantalla=tamañoPantalla;
         this.cantidadRam=cantidadRam;
         this.almacenamiento=almacenamiento;
         this.sistemaOperativo=sistemaOperativo;     
         this.marcaCodigo=marcaCodigo;     
-        this.tipo=tipo;   
     }
 
     public String getModelo() {
@@ -70,21 +68,15 @@ public class Computadora {
         this.sistemaOperativo = sistemaOperativo;
     }
 
-    public String getMarcaCodigo() {
+    public int getMarcaCodigo() {
         return marcaCodigo;
     }
 
-    public void setMarcaCodigo(String marcaCodigo) {
+    public void setMarcaCodigo(int marcaCodigo) {
         this.marcaCodigo = marcaCodigo;
     }
 
-    public int getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(int tipo) {
-        this.tipo = tipo;
-    }
+   
     
     
 }

@@ -17,6 +17,12 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="js/script.js"></script>
     </head>
+    <% 
+        response.setHeader("Cache-Control", "nocache, no-store, must-revalidate");
+        if(session.getAttribute("user")==null){
+            response.sendRedirect("/index.jsp");
+        }
+    %>
     <body>       
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <a class="navbar-brand" href="#">Navbar</a>

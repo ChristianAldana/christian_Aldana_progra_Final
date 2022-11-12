@@ -4,7 +4,6 @@
  */
 package Clases;
 
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,7 +14,7 @@ import java.sql.SQLException;
  * @author christian
  */
 public class AlumnoController {
-      Computadora[] tablaALumno;
+      Computadora[] tablaCompu;
     int indiceArray;
     private ConexionBaseDeDatos conectorBD;
     private Connection conexion;
@@ -23,18 +22,18 @@ public class AlumnoController {
     private ResultSet result = null;
     
     public AlumnoController(){
-        this.tablaALumno = new Computadora[100];
+        this.tablaCompu = new Computadora[100];
         this.indiceArray=0;
     }
     
-     public void guardarAlumno(Computadora alumno){
-        this.tablaALumno[this.indiceArray]=alumno;  
+     public void guardarAlumno(Computadora compu){
+        this.tablaCompu[this.indiceArray]=compu;  
         this.indiceArray=this.indiceArray+1;
         // procedimiento para almacenar en la Base de Datos
     }
     
     public Computadora[] getAlumnos(){
-        return this.tablaALumno;
+        return this.tablaCompu;
     }
     
     public void abrirConexion(){
@@ -45,7 +44,7 @@ public class AlumnoController {
     
     public String guardarAlumno2(Computadora compu){        
         String sql = "INSERT INTO final_progra.computadora(modelo, tamaño_pantalla, cantidad_ram, almacenamiento, sistema_operativo, marca_codigo) ";
-             sql += " VALUES(?,?,?,?,?,?,?)";              
+             sql += " VALUES(?,?,?,?,?,?)";              
        try{     
             abrirConexion();
             statement = conexion.prepareStatement(sql); 
@@ -54,8 +53,7 @@ public class AlumnoController {
             statement.setString(3, compu.getCantidadRam());
             statement.setString(4, compu.getAlmacenamiento());
             statement.setString(5, compu.getSistemaOperativo());
-            statement.setString(6, compu.getMarcaCodigo());
-            statement.setInt(7, compu.getTipo());
+            statement.setInt(6, compu.getMarcaCodigo());
                 int resultado = statement.executeUpdate(); 
                 if(resultado > 0){
                     return String.valueOf(resultado);
@@ -102,7 +100,7 @@ public class AlumnoController {
     }
     
     public String eliminarALumno(int carne){        
-        String sql = "DELETE FROM alumno WHERE modelo="+carne;              
+        String sql = "DELETE FROM computadora WHERE modelo="+carne;              
        try{     
             abrirConexion();
             statement = conexion.prepareStatement(sql); 

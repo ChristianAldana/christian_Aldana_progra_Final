@@ -15,8 +15,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author christian
  */
-@WebServlet(urlPatterns = {"/AlumnoController"})
-public class AlumnoController extends HttpServlet {
+@WebServlet(urlPatterns = {"/Logout"})
+public class Logout extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -27,19 +27,14 @@ public class AlumnoController extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-           if(request.getSession().getAttribute("user")==null){
-               //response.sendRedirect(request.getContextPath()+"/index.jsp");
-               request.setAttribute("success", 0);
-                request.getRequestDispatcher("/index.jsp").forward(request, response);
-           }else{
-               request.setAttribute("UsuarioLogueado", request.getSession().getAttribute("user"));
-               request.getRequestDispatcher("home.jsp").forward(request, response);
-           }
-           
+            request.getSession().removeAttribute("user");
+            request.getSession().removeAttribute("pass");
+            request.getSession().invalidate();
+            response.sendRedirect(request.getContextPath()+"/index.jsp");
         }
     }
 
